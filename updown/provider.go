@@ -3,7 +3,7 @@ package updown
 import (
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
-  "github.com/mvisonneau/updown"
+	"github.com/mvisonneau/updown"
 )
 
 func Provider() terraform.ResourceProvider {
@@ -20,7 +20,7 @@ func Provider() terraform.ResourceProvider {
 		ConfigureFunc: providerConfigure,
 
 		DataSourcesMap: map[string]*schema.Resource{
-      "updown_nodes": nodesDataSource(),
+			"updown_nodes": nodesDataSource(),
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
