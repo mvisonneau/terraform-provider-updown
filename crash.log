@@ -1,0 +1,1926 @@
+2018/05/28 22:05:28 [INFO] Terraform version: 0.11.7  41e50bd32a8825a84535e353c3674af8ce799161
+2018/05/28 22:05:28 [INFO] Go runtime version: go1.10.1
+2018/05/28 22:05:28 [INFO] CLI args: []string{"/go/bin/terraform", "apply"}
+2018/05/28 22:05:28 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2018/05/28 22:05:28 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2018/05/28 22:05:28 [INFO] CLI command args: []string{"apply"}
+2018/05/28 22:05:29 [INFO] command: empty terraform config, returning nil
+2018/05/28 22:05:29 [DEBUG] command: no data state file found for backend config
+2018/05/28 22:05:29 [DEBUG] New state was assigned lineage "492ce41e-8acc-a688-53e2-4630b04b461b"
+2018/05/28 22:05:29 [INFO] command: backend initialized: <nil>
+2018/05/28 22:05:29 [DEBUG] checking for provider in "."
+2018/05/28 22:05:29 [WARN] found legacy provider "terraform-provider-updown"
+2018/05/28 22:05:29 [DEBUG] checking for provider in "/go/bin"
+2018/05/28 22:05:29 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2018/05/28 22:05:29 [DEBUG] found valid plugin: "updown", "0.0.0", "/go/src/github.com/mvisonneau/terraform-provider-updown/terraform-provider-updown"
+2018/05/28 22:05:29 [DEBUG] checking for provisioner in "."
+2018/05/28 22:05:29 [DEBUG] checking for provisioner in "/go/bin"
+2018/05/28 22:05:29 [DEBUG] checking for provisioner in ".terraform/plugins/linux_amd64"
+2018/05/28 22:05:29 [INFO] command: backend <nil> is not enhanced, wrapping in local
+2018/05/28 22:05:29 [INFO] backend/local: starting Apply operation
+2018/05/28 22:05:29 [TRACE] Preserving existing state lineage "f0db8842-5d51-a0cd-4238-1beda09180a3"
+2018/05/28 22:05:29 [TRACE] Preserving existing state lineage "f0db8842-5d51-a0cd-4238-1beda09180a3"
+2018/05/28 22:05:29 [INFO] terraform: building graph: GraphTypeInput
+2018/05/28 22:05:29 [TRACE] ConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.LocalTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OutputTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanOutputTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Beginning...
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:1, Name:"global", Type:"updown_nodes", RawCount:(*config.RawConfig)(0xc4203dbb90), RawConfig:(*config.RawConfig)(0xc4203dbb20), Provisioners:[]*config.Provisioner{}, Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: updown_check.test
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"test", Type:"updown_check", RawCount:(*config.RawConfig)(0xc4203dbab0), RawConfig:(*config.RawConfig)(0xc4203dba40), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093900), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093950), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] ProviderConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Attach provider request: []string{} updown
+2018/05/28 22:05:29 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"updown", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4203db9d0)}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+2018/05/28 22:05:29 [DEBUG] resource data.updown_nodes.global using provider provider.updown
+2018/05/28 22:05:29 [DEBUG] resource updown_check.test using provider provider.updown
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RemovedModuleTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv4" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv6" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "provider.updown" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CountBoundaryTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeAbstractResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+data.updown_nodes.global - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  updown_check.test - *terraform.NodeAbstractResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeAbstractResource
+  updown_check.test - *terraform.NodeAbstractResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeAbstractResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] Starting graph walk: walkInput
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "root"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "data.updown_nodes.global" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "updown_check.test" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv4" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv6" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (count boundary fixup)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "provider.updown (close)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "data.updown_nodes.global", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "updown_check.test", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv4", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv6", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': evaluating
+2018/05/28 22:05:29 [TRACE] [walkInput] Entering eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInitProvider
+2018-05-28T22:05:29.231Z [DEBUG] plugin: starting plugin: path=/go/src/github.com/mvisonneau/terraform-provider-updown/terraform-provider-updown args=[/go/src/github.com/mvisonneau/terraform-provider-updown/terraform-provider-updown]
+2018-05-28T22:05:29.237Z [DEBUG] plugin: waiting for RPC address: path=/go/src/github.com/mvisonneau/terraform-provider-updown/terraform-provider-updown
+2018-05-28T22:05:29.287Z [DEBUG] plugin.terraform-provider-updown: plugin address: timestamp=2018-05-28T22:05:29.286Z address=/tmp/plugin747173168 network=unix
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolateProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInputProvider
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] [walkInput] Exiting eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv6"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': evaluating
+2018/05/28 22:05:29 [TRACE] [walkInput] Entering eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [DEBUG] Interpolating computed list element attribute ipv6_addresses (8)
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] [walkInput] Exiting eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv4"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': evaluating
+2018/05/28 22:05:29 [TRACE] [walkInput] Entering eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [DEBUG] Interpolating computed list element attribute ipv4_addresses (8)
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] [walkInput] Exiting eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': walking
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': evaluating
+2018/05/28 22:05:29 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': evaluating
+2018/05/28 22:05:29 [TRACE] [walkInput] Entering eval tree: meta.count-boundary (count boundary fixup)
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2018/05/28 22:05:29 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "data.updown_nodes.global.0", replace "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] [walkInput] Entering eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "updown_check.test.0", replace "updown_check.test"
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCloseProvider
+2018/05/28 22:05:29 [TRACE] [walkInput] Exiting eval tree: meta.count-boundary (count boundary fixup)
+2018/05/28 22:05:29 [TRACE] [walkInput] Exiting eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "root"
+2018/05/28 22:05:29 [TRACE] vertex 'root.root': walking
+2018/05/28 22:05:29 [INFO] terraform: building graph: GraphTypeValidate
+2018/05/28 22:05:29 [TRACE] ConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.LocalTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OutputTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanOutputTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Beginning...
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:1, Name:"global", Type:"updown_nodes", RawCount:(*config.RawConfig)(0xc4203dbb90), RawConfig:(*config.RawConfig)(0xc4203dbb20), Provisioners:[]*config.Provisioner{}, Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: updown_check.test
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"test", Type:"updown_check", RawCount:(*config.RawConfig)(0xc4203dbab0), RawConfig:(*config.RawConfig)(0xc4203dba40), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093900), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093950), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] ProviderConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Attach provider request: []string{} updown
+2018/05/28 22:05:29 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"updown", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4203db9d0)}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+2018/05/28 22:05:29 [DEBUG] resource data.updown_nodes.global using provider provider.updown
+2018/05/28 22:05:29 [DEBUG] resource updown_check.test using provider provider.updown
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RemovedModuleTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv4" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv6" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "provider.updown" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CountBoundaryTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeValidatableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  updown_check.test - *terraform.NodeValidatableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeValidatableResource
+  updown_check.test - *terraform.NodeValidatableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeValidatableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] Starting graph walk: walkValidate
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "root"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "updown_check.test" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "data.updown_nodes.global" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv4" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv6" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "provider.updown (close)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "data.updown_nodes.global", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv4", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv6", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "updown_check.test", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (count boundary fixup)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInitProvider
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolateProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateProvider
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateCount
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': expanding/walking dynamic subgraph
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093900), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateResourceSelfRef
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateResource
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateCount
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': expanding/walking dynamic subgraph
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+updown_check.test - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093950), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+updown_check.test - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+updown_check.test - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+updown_check.test - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+updown_check.test - *terraform.NodeValidatableResourceInstance
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateResourceSelfRef
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateResource
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv6"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv4"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCloseProvider
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': evaluating
+2018/05/28 22:05:29 [TRACE] [walkValidate] Entering eval tree: meta.count-boundary (count boundary fixup)
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2018/05/28 22:05:29 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "data.updown_nodes.global.0", replace "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "updown_check.test.0", replace "updown_check.test"
+2018/05/28 22:05:29 [TRACE] [walkValidate] Exiting eval tree: meta.count-boundary (count boundary fixup)
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "root"
+2018/05/28 22:05:29 [TRACE] vertex 'root.root': walking
+2018/05/28 22:05:29 [INFO] backend/local: apply calling Refresh
+2018/05/28 22:05:29 [INFO] terraform: building graph: GraphTypeRefresh
+2018/05/28 22:05:29 [TRACE] ConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [TRACE] ConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4203145f0), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420314550), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Beginning...
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: updown_check.test
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"test", Type:"updown_check", RawCount:(*config.RawConfig)(0xc4203dbab0), RawConfig:(*config.RawConfig)(0xc4203dba40), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:1, Name:"global", Type:"updown_nodes", RawCount:(*config.RawConfig)(0xc4203dbb90), RawConfig:(*config.RawConfig)(0xc4203dbb20), Provisioners:[]*config.Provisioner{}, Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [TRACE] ProviderConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Attach provider request: []string{} updown
+2018/05/28 22:05:29 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"updown", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4203db9d0)}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+2018/05/28 22:05:29 [DEBUG] resource updown_check.test using provider provider.updown
+2018/05/28 22:05:29 [DEBUG] resource data.updown_nodes.global using provider provider.updown
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.LocalTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OutputTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv6" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "provider.updown" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv4" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeRefreshableManagedResource
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeRefreshableManagedResource
+root - terraform.graphNodeRoot
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodeRefreshableDataResource
+  updown_check.test - *terraform.NodeRefreshableManagedResource
+root - terraform.graphNodeRoot
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeRefreshableManagedResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] Starting graph walk: walkRefresh
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "root"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv6" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv4" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "updown_check.test" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "data.updown_nodes.global" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv6", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv4", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "provider.updown (close)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "updown_check.test", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "data.updown_nodes.global", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInitProvider
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolateProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalConfigProvider
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountCheckComputed
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': expanding/walking dynamic subgraph
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResourceInstance
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Starting...
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Checking: updown_check.test
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': evaluating
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceCountTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResourceInstance
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4203145f0), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResourceInstance
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+updown_check.test - *terraform.NodeRefreshableManagedResourceInstance
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalReadState
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalRefresh
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountCheckComputed
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': expanding/walking dynamic subgraph
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResourceInstance
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Starting...
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Checking: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceCountTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResourceInstance
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420314550), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResourceInstance
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodeRefreshableDataResourceInstance
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteState
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalReadDataDiff
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalReadDataApply
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteState
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteState
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalUpdateStateHook
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv6"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [DEBUG] Interpolating computed list element attribute ipv6_addresses (8)
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCloseProvider
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv4"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': evaluating
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Entering eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [DEBUG] Interpolating computed list element attribute ipv4_addresses (8)
+2018/05/28 22:05:29 [TRACE] [walkRefresh] Exiting eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "root"
+2018/05/28 22:05:29 [TRACE] vertex 'root.root': walking
+2018/05/28 22:05:29 [INFO] backend/local: apply calling Plan
+2018/05/28 22:05:29 [INFO] terraform: building graph: GraphTypePlan
+2018/05/28 22:05:29 [TRACE] ConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.LocalTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OutputTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanOutputTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Beginning...
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:1, Name:"global", Type:"updown_nodes", RawCount:(*config.RawConfig)(0xc4203dbb90), RawConfig:(*config.RawConfig)(0xc4203dbb20), Provisioners:[]*config.Provisioner{}, Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] AttachResourceConfigTransformer: Attach resource config request: updown_check.test
+2018/05/28 22:05:29 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"test", Type:"updown_check", RawCount:(*config.RawConfig)(0xc4203dbab0), RawConfig:(*config.RawConfig)(0xc4203dba40), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093b80), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093bd0), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] ProviderConfigTransformer: Starting for path: []
+2018/05/28 22:05:29 [TRACE] Attach provider request: []string{} updown
+2018/05/28 22:05:29 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"updown", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4203db9d0)}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderConfigTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+2018/05/28 22:05:29 [DEBUG] resource data.updown_nodes.global using provider provider.updown
+2018/05/28 22:05:29 [DEBUG] resource updown_check.test using provider provider.updown
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RemovedModuleTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv4" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "output.ipv6" references: [data.updown_nodes.global]
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "provider.updown" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CountBoundaryTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodePlannableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  updown_check.test - *terraform.NodePlannableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+output.ipv6 - *terraform.NodeApplyableOutput
+  data.updown_nodes.global - *terraform.NodePlannableResource
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  data.updown_nodes.global - *terraform.NodePlannableResource
+  updown_check.test - *terraform.NodePlannableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodePlannableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:29 [DEBUG] Starting graph walk: walkPlan
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "root"
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv4"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "data.updown_nodes.global" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "root" waiting on "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv4" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv6"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "output.ipv6" waiting on "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "updown_check.test"
+2018/05/28 22:05:29 [TRACE] dag/walk: added edge: "updown_check.test" waiting on "provider.updown"
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "data.updown_nodes.global", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "provider.updown (close)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv4", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "output.ipv6", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "updown_check.test", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (count boundary fixup)", sending new deps
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInitProvider
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolateProvider
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalConfigProvider
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: provider.updown
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': evaluating
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountCheckComputed
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': expanding/walking dynamic subgraph
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+updown_check.test - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Starting...
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Checking: updown_check.test
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceCountTransformer:
+
+updown_check.test - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountCheckComputed
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093bd0), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+updown_check.test - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+updown_check.test - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+updown_check.test - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+updown_check.test - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': expanding/walking dynamic subgraph
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Starting...
+2018/05/28 22:05:29 [TRACE] OrphanResourceCount: Checking: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.OrphanResourceCountTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [DEBUG] Attaching resource state to "data.updown_nodes.global": &terraform.ResourceState{Type:"updown_nodes", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420093b80), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [DEBUG] ReferenceTransformer: "data.updown_nodes.global" references: []
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:29 [TRACE] Graph after step *terraform.RootTransformer:
+
+data.updown_nodes.global - *terraform.NodePlannableResourceInstance
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalValidateResource
+2018/05/28 22:05:29 [TRACE] dag/walk: added new vertex: "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.data.updown_nodes.global': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalReadState
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalIf, err: early exit
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence, err: early exit
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: data.updown_nodes.global
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv6"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv6': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [DEBUG] Interpolating computed list element attribute ipv6_addresses (8)
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: output.ipv6
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "output.ipv4"
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.output.ipv4': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:29 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:29 [DEBUG] Interpolating computed list element attribute ipv4_addresses (8)
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: output.ipv4
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalReadState
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalDiff
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCheckPreventDestroy
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteState
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalWriteDiff
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: updown_check.test
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "provider.updown (close)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.provider.updown (close)': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCloseProvider
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: provider.updown (close)
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:29 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': walking
+2018/05/28 22:05:29 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': evaluating
+2018/05/28 22:05:29 [TRACE] [walkPlan] Entering eval tree: meta.count-boundary (count boundary fixup)
+2018/05/28 22:05:29 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2018/05/28 22:05:29 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "data.updown_nodes.global.0", replace "data.updown_nodes.global"
+2018/05/28 22:05:29 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "updown_check.test.0", replace "updown_check.test"
+2018/05/28 22:05:29 [TRACE] [walkPlan] Exiting eval tree: meta.count-boundary (count boundary fixup)
+2018/05/28 22:05:29 [TRACE] dag/walk: walking "root"
+2018/05/28 22:05:29 [TRACE] vertex 'root.root': walking
+2018/05/28 22:05:29 [DEBUG] command: asking for input: "Do you want to perform these actions?"
+2018/05/28 22:05:30 [INFO] terraform: building graph: GraphTypeApply
+2018/05/28 22:05:30 [TRACE] DiffTransformer: starting
+2018/05/28 22:05:30 [TRACE] DiffTransformer: Module: UPDATE: updown_check.test
+  disabled_locations.#: "0" => "2"
+  disabled_locations.0: "" => "lan"
+  disabled_locations.1: "" => "mia"
+2018/05/28 22:05:30 [TRACE] DiffTransformer: Resource "updown_check.test": *terraform.InstanceDiff{mu:sync.Mutex{state:0, sema:0x0}, Attributes:map[string]*terraform.ResourceAttrDiff{"disabled_locations.0":*terraform.ResourceAttrDiff{Old:"", New:"lan", NewComputed:false, NewRemoved:false, NewExtra:interface {}(nil), RequiresNew:false, Sensitive:false, Type:0x0}, "disabled_locations.1":*terraform.ResourceAttrDiff{Old:"", New:"mia", NewComputed:false, NewRemoved:false, NewExtra:interface {}(nil), RequiresNew:false, Sensitive:false, Type:0x0}, "disabled_locations.#":*terraform.ResourceAttrDiff{Old:"0", New:"2", NewComputed:false, NewRemoved:false, NewExtra:interface {}(nil), RequiresNew:false, Sensitive:false, Type:0x0}}, Destroy:false, DestroyDeposed:false, DestroyTainted:false, Meta:map[string]interface {}(nil)}
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.DiffTransformer:
+
+updown_check.test - *terraform.NodeApplyableResource
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.OrphanOutputTransformer:
+
+updown_check.test - *terraform.NodeApplyableResource
+2018/05/28 22:05:30 [TRACE] AttachResourceConfigTransformer: Beginning...
+2018/05/28 22:05:30 [TRACE] AttachResourceConfigTransformer: Attach resource config request: updown_check.test
+2018/05/28 22:05:30 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"test", Type:"updown_check", RawCount:(*config.RawConfig)(0xc4203dbab0), RawConfig:(*config.RawConfig)(0xc4203dba40), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+updown_check.test - *terraform.NodeApplyableResource
+2018/05/28 22:05:30 [DEBUG] Attaching resource state to "updown_check.test": &terraform.ResourceState{Type:"updown_check", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc420315180), Deposed:[]*terraform.InstanceState{}, Provider:"provider.updown", mu:sync.Mutex{state:0, sema:0x0}}
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+updown_check.test - *terraform.NodeApplyableResource
+2018/05/28 22:05:30 [TRACE] ProviderConfigTransformer: Starting for path: []
+2018/05/28 22:05:30 [TRACE] Attach provider request: []string{} updown
+2018/05/28 22:05:30 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"updown", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4203db9d0)}
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.ProviderConfigTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+2018/05/28 22:05:30 [DEBUG] resource updown_check.test using provider provider.updown
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] DestroyEdgeTransformer: Beginning destroy edge transformation...
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.DestroyEdgeTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] CBDEdgeTransformer: Beginning CBD transformation...
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.CBDEdgeTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.LocalTransformer:
+
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.OutputTransformer:
+
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.RemovedModuleTransformer:
+
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [DEBUG] ReferenceTransformer: "provider.updown" references: []
+2018/05/28 22:05:30 [DEBUG] ReferenceTransformer: "output.ipv4" references: []
+2018/05/28 22:05:30 [DEBUG] ReferenceTransformer: "output.ipv6" references: []
+2018/05/28 22:05:30 [DEBUG] ReferenceTransformer: "updown_check.test" references: []
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.CountBoundaryTransformer:
+
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.RootTransformer:
+
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  provider.updown - *terraform.NodeApplyableProvider
+  updown_check.test - *terraform.NodeApplyableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  output.ipv4 - *terraform.NodeApplyableOutput
+  output.ipv6 - *terraform.NodeApplyableOutput
+  updown_check.test - *terraform.NodeApplyableResource
+output.ipv4 - *terraform.NodeApplyableOutput
+output.ipv6 - *terraform.NodeApplyableOutput
+provider.updown - *terraform.NodeApplyableProvider
+provider.updown (close) - *terraform.graphNodeCloseProvider
+  updown_check.test - *terraform.NodeApplyableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.updown (close) - *terraform.graphNodeCloseProvider
+updown_check.test - *terraform.NodeApplyableResource
+  provider.updown - *terraform.NodeApplyableProvider
+2018/05/28 22:05:30 [DEBUG] Starting graph walk: walkApply
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "updown_check.test"
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "provider.updown"
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "output.ipv4"
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "output.ipv6"
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "provider.updown (close)"
+2018/05/28 22:05:30 [TRACE] dag/walk: added new vertex: "root"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv6"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "updown_check.test" waiting on "provider.updown"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "updown_check.test"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "provider.updown (close)" waiting on "updown_check.test"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "root" waiting on "provider.updown (close)"
+2018/05/28 22:05:30 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "output.ipv4"
+2018/05/28 22:05:30 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (count boundary fixup)", sending new deps
+2018/05/28 22:05:30 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2018/05/28 22:05:30 [TRACE] dag/walk: dependencies changed for "updown_check.test", sending new deps
+2018/05/28 22:05:30 [TRACE] dag/walk: dependencies changed for "provider.updown (close)", sending new deps
+2018/05/28 22:05:30 [TRACE] dag/walk: walking "provider.updown"
+2018/05/28 22:05:30 [TRACE] vertex 'root.provider.updown': walking
+2018/05/28 22:05:30 [TRACE] vertex 'root.provider.updown': evaluating
+2018/05/28 22:05:30 [TRACE] [walkApply] Entering eval tree: provider.updown
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalInitProvider
+2018/05/28 22:05:30 [TRACE] dag/walk: walking "output.ipv4"
+2018/05/28 22:05:30 [TRACE] vertex 'root.output.ipv4': walking
+2018/05/28 22:05:30 [TRACE] vertex 'root.output.ipv4': evaluating
+2018/05/28 22:05:30 [TRACE] [walkApply] Entering eval tree: output.ipv4
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:30 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:30 [DEBUG] Interpolating computed list element attribute ipv4_addresses (8)
+2018/05/28 22:05:30 [TRACE] [walkApply] Exiting eval tree: output.ipv4
+2018/05/28 22:05:30 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:30 [TRACE] dag/walk: walking "output.ipv6"
+2018/05/28 22:05:30 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:30 [TRACE] vertex 'root.output.ipv6': walking
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalInterpolateProvider
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2018/05/28 22:05:30 [TRACE] vertex 'root.output.ipv6': evaluating
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalConfigProvider
+2018/05/28 22:05:30 [TRACE] [walkApply] Entering eval tree: output.ipv6
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:30 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalOpFilter
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalWriteOutput
+2018/05/28 22:05:30 [DEBUG] Interpolating computed list element attribute ipv6_addresses (8)
+2018/05/28 22:05:30 [TRACE] [walkApply] Exiting eval tree: provider.updown
+2018/05/28 22:05:30 [TRACE] dag/walk: walking "updown_check.test"
+2018/05/28 22:05:30 [TRACE] vertex 'root.updown_check.test': walking
+2018/05/28 22:05:30 [TRACE] vertex 'root.updown_check.test': evaluating
+2018/05/28 22:05:30 [TRACE] [walkApply] Entering eval tree: updown_check.test
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalSequence
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalInstanceInfo
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalReadDiff
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:30 [TRACE] root: eval: terraform.EvalNoop
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalInterpolate
+2018/05/28 22:05:30 [TRACE] [walkApply] Exiting eval tree: output.ipv6
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalReadState
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalValidateResource
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalDiff
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalReadDiff
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalCompareDiff
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalGetProvider
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalReadState
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalApplyPre
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalApply
+2018/05/28 22:05:30 [DEBUG] apply: updown_check.test: executing Apply
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: panic: interface conversion: interface {} is []interface {}, not *schema.Set
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: 
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: goroutine 67 [running]:
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: github.com/mvisonneau/terraform-provider-updown/updown.contrusctPayload(0xc4203dc000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: 	/go/src/github.com/mvisonneau/terraform-provider-updown/updown/resource_check.go:123 +0x6e5
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: github.com/mvisonneau/terraform-provider-updown/updown.checkUpdate(0xc4203dc000, 0xcd9060, 0xc4203d2300, 0x24, 0x140ae40)
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: 	/go/src/github.com/mvisonneau/terraform-provider-updown/updown/resource_check.go:179 +0x8f
+2018-05-28T22:05:30.701Z [DEBUG] plugin.terraform-provider-updown: github.com/mvisonneau/terraform-provider-updown/vendor/github.com/hashicorp/terraform/helper/schema.(*Resource).Apply(0xc420204930, 0xc4203c65a0, 0xc420440040, 0xcd9060, 0xc4203d2300, 0xc420181401, 0xc420064b88, 0x4c048c)
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/go/src/github.com/mvisonneau/terraform-provider-updown/vendor/github.com/hashicorp/terraform/helper/schema/resource.go:233 +0x259
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: github.com/mvisonneau/terraform-provider-updown/vendor/github.com/hashicorp/terraform/helper/schema.(*Provider).Apply(0xc4202049a0, 0xc4203c6550, 0xc4203c65a0, 0xc420440040, 0x18, 0x18, 0xc420440060)
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/go/src/github.com/mvisonneau/terraform-provider-updown/vendor/github.com/hashicorp/terraform/helper/schema/provider.go:283 +0xa4
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: github.com/mvisonneau/terraform-provider-updown/vendor/github.com/hashicorp/terraform/plugin.(*ResourceProviderServer).Apply(0xc42049d720, 0xc42049dbc0, 0xc4203b7f10, 0x0, 0x0)
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/go/src/github.com/mvisonneau/terraform-provider-updown/vendor/github.com/hashicorp/terraform/plugin/resource_provider.go:527 +0x57
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: reflect.Value.call(0xc420082a80, 0xc420192f18, 0x13, 0xde8077, 0x4, 0xc420064f18, 0x3, 0x3, 0xc42007f900, 0x0, ...)
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/usr/local/go/src/reflect/value.go:447 +0x969
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: reflect.Value.Call(0xc420082a80, 0xc420192f18, 0x13, 0xc420388f18, 0x3, 0x3, 0x0, 0x0, 0x0)
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/usr/local/go/src/reflect/value.go:308 +0xa4
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: net/rpc.(*service).call(0xc4203d9480, 0xc42009b860, 0xc4204a6298, 0xc4204a62c0, 0xc420298580, 0xc4204923c0, 0xc48e40, 0xc42049dbc0, 0x16, 0xc48e80, ...)
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/usr/local/go/src/net/rpc/server.go:384 +0x14e
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: created by net/rpc.(*Server).ServeCodec
+2018-05-28T22:05:30.702Z [DEBUG] plugin.terraform-provider-updown: 	/usr/local/go/src/net/rpc/server.go:480 +0x43a
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalWriteState
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalApplyProvisioners
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalIf
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalWriteState
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalWriteDiff
+2018/05/28 22:05:30 [TRACE] root: eval: *terraform.EvalApplyPost
+2018/05/28 22:05:30 [ERROR] root: eval: *terraform.EvalApplyPost, err: 1 error(s) occurred:
+
+* updown_check.test: unexpected EOF
+2018/05/28 22:05:30 [ERROR] root: eval: *terraform.EvalSequence, err: 1 error(s) occurred:
+
+* updown_check.test: unexpected EOF
+2018/05/28 22:05:30 [TRACE] [walkApply] Exiting eval tree: updown_check.test
+2018/05/28 22:05:30 [TRACE] dag/walk: upstream errored, not walking "provider.updown (close)"
+2018/05/28 22:05:30 [TRACE] dag/walk: upstream errored, not walking "meta.count-boundary (count boundary fixup)"
+2018/05/28 22:05:30 [TRACE] dag/walk: upstream errored, not walking "root"
+2018-05-28T22:05:30.708Z [DEBUG] plugin: plugin process exited: path=/go/src/github.com/mvisonneau/terraform-provider-updown/terraform-provider-updown
+2018/05/28 22:05:30 [TRACE] Preserving existing state lineage "f0db8842-5d51-a0cd-4238-1beda09180a3"
+2018/05/28 22:05:30 [TRACE] Preserving existing state lineage "f0db8842-5d51-a0cd-4238-1beda09180a3"
+2018/05/28 22:05:30 [TRACE] Preserving existing state lineage "f0db8842-5d51-a0cd-4238-1beda09180a3"
+2018/05/28 22:05:30 [TRACE] Preserving existing state lineage "f0db8842-5d51-a0cd-4238-1beda09180a3"
+2018/05/28 22:05:30 [DEBUG] plugin: waiting for all plugin processes to complete...
+2018-05-28T22:05:30.717Z [WARN ] plugin: error closing client during Kill: err="connection is shut down"
