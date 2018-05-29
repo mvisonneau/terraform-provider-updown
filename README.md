@@ -5,13 +5,13 @@ Terraform provider for [updown.io](https://updown.io)
 ## Resources
 
 | TYPE | NAME | DESCRIPTION |
-|---|---|
+|---|---|---|
 | **data** |`updown_nodes`| Returns the list of testing nodes ipv4 and ipv6 addresses |
 | **resource** |`updown_check`| Creates a check |
 
 ## Example
 
-```
+```hcl
 # Configure the provider
 provider "updown" {
   # Can also be set using UPDOWN_API_KEY env variable.
