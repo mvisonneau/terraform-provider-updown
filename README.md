@@ -2,6 +2,15 @@
 
 Terraform provider for [updown.io](https://updown.io)
 
+## Building the provider
+
+```
+~$ export PROVIDER_PATH=${GOPATH}/src/github.com/mvisonneau/terraform-provider-updown
+~$ mkdir -p ${PROVIDER_PATH}; cd ${PROVIDER_PATH}
+~$ git clone git@github.com:mvisonneau/terraform-provider-updown .
+~$ make build
+```
+
 ## Resources
 
 | TYPE | NAME | DESCRIPTION |
