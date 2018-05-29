@@ -3,7 +3,7 @@ package updown
 import (
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
-	"github.com/mvisonneau/updown"
+	"github.com/antoineaugusti/updown"
 )
 
 func Provider() terraform.ResourceProvider {

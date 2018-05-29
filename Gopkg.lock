@@ -9,6 +9,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/antoineaugusti/updown"
+  packages = ["."]
+  revision = "f0053dde61414c6d3cc9e5476ef037d3fdc17486"
+
+[[projects]]
+  branch = "master"
   name = "github.com/apparentlymart/go-cidr"
   packages = ["cidr"]
   revision = "2bd8b58cf4275aeb086ade613de226773e29e853"
@@ -299,12 +305,6 @@
   revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
 
 [[projects]]
-  branch = "added_api_parameters"
-  name = "github.com/mvisonneau/updown"
-  packages = ["."]
-  revision = "09c58e23cb7c615849678ec6717d122d01568a59"
-
-[[projects]]
   name = "github.com/oklog/run"
   packages = ["."]
   revision = "4dadeb3030eda0273a12382bb2348ffc7c9d1a39"
@@ -447,6 +447,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "e0402ad4a01f02e1f852db290589193ffe4a7752abc7691accf789583ed33399"
+  inputs-digest = "57aa7dbd521fe821d87277eb0380731d60175e7d1ea5d449b5113f2de82b725d"
   solver-name = "gps-cdcl"
   solver-version = 1

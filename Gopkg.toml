@@ -30,8 +30,8 @@
   version = "0.11.7"
 
 [[constraint]]
-  name = "github.com/mvisonneau/updown"
-  branch = "added_api_parameters"
+  name = "github.com/antoineaugusti/updown"
+  branch = "master"
 
 [prune]
   go-tests = true

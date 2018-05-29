@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/mvisonneau/updown"
+	"github.com/antoineaugusti/updown"
 )
 
 func nodesDataSource() *schema.Resource {
