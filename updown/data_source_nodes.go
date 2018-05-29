@@ -12,7 +12,7 @@ func nodesDataSource() *schema.Resource {
 		Read: nodesList,
 
 		Schema: map[string]*schema.Schema{
-			"ipv4_addresses": {
+			"ipv4": {
 				Type:        schema.TypeList,
 				Computed:    true,
 				Description: "Ipv4 addresses list of the nodes.",
@@ -20,7 +20,7 @@ func nodesDataSource() *schema.Resource {
 					Type: schema.TypeString,
 				},
 			},
-			"ipv6_addresses": {
+			"ipv6": {
 				Type:        schema.TypeList,
 				Computed:    true,
 				Description: "Ipv6 addresses list or the nodes.",
@@ -35,19 +35,19 @@ func nodesDataSource() *schema.Resource {
 func nodesList(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*updown.Client)
 
-	ipv4_addresses, _, err := client.Node.ListIPv4()
+	ipv4, _, err := client.Node.ListIPv4()
 	if err != nil {
 		return fmt.Errorf("Error reading ipv4 addresses from API")
 	}
 
-	ipv6_addresses, _, err := client.Node.ListIPv6()
+	ipv6, _, err := client.Node.ListIPv6()
 	if err != nil {
 		return fmt.Errorf("Error reading ipv6 addresses from API")
 	}
 
 	d.SetId("updown.io/nodes")
-	d.Set("ipv4_addresses", ipv4_addresses)
-	d.Set("ipv6_addresses", ipv6_addresses)
+	d.Set("ipv4", ipv4)
+	d.Set("ipv6", ipv6)
 
 	return nil
 }
