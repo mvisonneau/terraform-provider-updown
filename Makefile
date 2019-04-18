@@ -4,7 +4,6 @@ FILES         := $(shell git ls-files '*.go')
 
 .PHONY: setup
 setup: ## Install required libraries/tools
-	go get -u -v github.com/golang/dep/cmd/dep
 	go get -u -v golang.org/x/tools/cmd/goimports
 	go get -u -v github.com/golang/lint/golint
 
@@ -24,7 +23,7 @@ build: ## Build the provider
 
 .PHONY: deps
 deps: ## Fetch all dependencies
-	dep ensure -v
+	go mod vendor
 
 .PHONY: imports
 imports: ## Fixes the syntax (linting) of the codebase
