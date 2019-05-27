@@ -1,42 +1,49 @@
 NAME          := terraform-provider-updown
 FILES         := $(shell git ls-files '*.go')
+REPOSITORY    := mvisonneau/$(NAME)
 .DEFAULT_GOAL := help
 
+export GO111MODULE=on
+
 .PHONY: setup
-setup: ## Install required libraries/tools
-	go get -u -v github.com/golang/dep/cmd/dep
-	go get -u -v golang.org/x/tools/cmd/goimports
-	go get -u -v github.com/golang/lint/golint
+setup: ## Install required libraries/tools for build tasks
+	@command -v golint 2>&1 >/dev/null    || GO111MODULE=off go get -u -v golang.org/x/lint/golint
+	@command -v goimports 2>&1 >/dev/null || GO111MODULE=off go get -u -v golang.org/x/tools/cmd/goimports
 
 .PHONY: fmt
-fmt: ## Format source code
+fmt: setup ## Format source code
 	goimports -w $(FILES)
 
 .PHONY: lint
-lint: ## Run golint and go vet against the codebase
-	golint -set_exit_status . updown
+lint: setup ## Run golint, goimports and go vet against the codebase
+	golint -set_exit_status .
 	go vet ./...
+	goimports -d $(FILES) > goimports.out
+	@if [ -s goimports.out ]; then cat goimports.out; rm goimports.out; exit 1; else rm goimports.out; fi
+
+.PHONY: test
+test: ## Run the tests against the codebase
+	go test -v ./...
+
+.PHONY: install
+install: ## Build and install locally the binary (dev purpose)
+	go install .
 
 .PHONY: build
-build: ## Build the provider
+build: setup ## Build the binary
 	go build .
-	strip $(NAME)
-
-.PHONY: deps
-deps: ## Fetch all dependencies
-	dep ensure -v
-
-.PHONY: imports
-imports: ## Fixes the syntax (linting) of the codebase
-	goimports -d $(FILES)
 
 .PHONY: clean
 clean: ## Remove binary if it exists
 	rm -f $(NAME)
 
+.PHONY: sign-drone
+sign-drone: ## Sign Drone CI configuration
+	drone sign $(REPOSITORY) --save
+
 .PHONY: all
-all: lint imports build ## Test and build for all supported platforms
+all: lint test build ## Test, builds and ship package for all supported platforms
 
 .PHONY: help
-help: ## Display this help
+help: ## Displays this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

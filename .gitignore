@@ -3,4 +3,3 @@ main.tf
 terraform-provider-updown
 terraform.tfstate*
 vendor
-crash.log

@@ -1,0 +1,37 @@
+---
+kind: pipeline
+name: test
+
+steps:
+  - name: lint
+    image: golang:1.12
+    commands:
+      - make lint
+  - name: test
+    image: golang:1.12
+    commands:
+      - make test
+  - name: build
+    image: golang:1.12
+    commands:
+      - make build
+  - name: all_ok
+    image: busybox
+    depends_on:
+      - lint
+      - test
+      - build
+    commands:
+      - 'true'
+
+trigger:
+  event:
+    - push
+    - pull_request
+    - tag
+
+---
+kind: signature
+hmac: 32b5dbddefc715a5a161310f6fa6167df80792b9e0b11a818f2163e8ef9a018a
+
+...
