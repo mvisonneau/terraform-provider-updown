@@ -12,6 +12,7 @@ setup: ## Install required libraries/tools for build tasks
 
 .PHONY: fmt
 fmt: setup ## Format source code
+	gofmt -s -w $(FILES)
 	goimports -w $(FILES)
 
 .PHONY: lint

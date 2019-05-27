@@ -6,10 +6,11 @@ import (
 	"github.com/hashicorp/terraform/terraform"
 )
 
+// Provider returns a Terraform provider resource
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"api_key": &schema.Schema{
+			"api_key": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("UPDOWN_API_KEY", ""),
