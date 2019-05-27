@@ -3,8 +3,8 @@ package updown
 import (
 	"fmt"
 
-	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/antoineaugusti/updown"
+	"github.com/hashicorp/terraform/helper/schema"
 )
 
 func checkResource() *schema.Resource {
