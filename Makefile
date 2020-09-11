@@ -62,7 +62,7 @@ build-local: ## Build the binaries using local GOOS
 
 .PHONY: build
 build: ## Build the binaries
-	goreleaser release --snapshot --skip-publish --rm-dist
+	goreleaser release --snapshot --skip-publish --skip-sign --rm-dist
 
 .PHONY: release
 release: ## Build & release the binaries
