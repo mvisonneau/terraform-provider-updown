@@ -81,15 +81,6 @@ coverage: ## Generates coverage report
 	rm -rf *.out
 	go test -v ./... -coverpkg=./... -coverprofile=coverage.out
 
-.PHONY: dev-env
-dev-env: ## Build a local development environment using Docker
-	@docker run -it --rm \
-		-v $(shell pwd):/go/src/github.com/mvisonneau/$(NAME) \
-		-w /go/src/github.com/mvisonneau/$(NAME) \
-		-p 8080:8080 \
-		golang:1.14 \
-		/bin/bash -c 'make setup; make install; bash'
-
 .PHONY: is-git-dirty
 is-git-dirty: ## Tests if git is in a dirty state
 	@test $(shell git status --porcelain | grep -c .) -eq 0
