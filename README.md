@@ -7,15 +7,6 @@
 
 Terraform provider for [updown.io](https://updown.io)
 
-## Building the provider
-
-```
-~$ export PROVIDER_PATH=${GOPATH}/src/github.com/mvisonneau/terraform-provider-updown
-~$ mkdir -p ${PROVIDER_PATH}; cd ${PROVIDER_PATH}
-~$ git clone git@github.com:mvisonneau/terraform-provider-updown .
-~$ make build
-```
-
 ## Resources
 
 | TYPE | NAME | DESCRIPTION |
@@ -23,10 +14,19 @@ Terraform provider for [updown.io](https://updown.io)
 | **data** |`updown_nodes`| Returns the list of testing nodes ipv4 and ipv6 addresses |
 | **resource** |`updown_check`| Creates a check |
 
-## Example
+## Example usage
 
 ```hcl
-# Configure the provider
+# Import the provider
+terraform {
+  required_providers {
+    updown = {
+      source = "mvisonneau/updown"
+    }
+  }
+}
+
+# Configure it
 provider "updown" {
   # Can also be set using UPDOWN_API_KEY env variable.
   api_key = "<YOUR_UPDOWN_API_KEY>"
@@ -62,6 +62,15 @@ output "updown_nodes_ipv4" {
 output "updown_nodes_ipv6" {
   value = "${data.updown_nodes.global.ipv6}"
 }
+```
+
+## Building the provider
+
+```bash
+~$ export PROVIDER_PATH=${GOPATH}/src/github.com/mvisonneau/terraform-provider-updown
+~$ mkdir -p ${PROVIDER_PATH}; cd ${PROVIDER_PATH}
+~$ git clone git@github.com:mvisonneau/terraform-provider-updown .
+~$ make build
 ```
 
 ## TODO
