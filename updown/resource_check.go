@@ -142,7 +142,7 @@ func checkCreate(d *schema.ResourceData, meta interface{}) error {
 
 	check, _, err := client.Check.Add(contrusctPayload(d))
 	if err != nil {
-		return fmt.Errorf("Error creating check with the API.")
+		return fmt.Errorf("creating check with the API")
 	}
 
 	d.SetId(check.Token)
@@ -155,19 +155,25 @@ func checkRead(d *schema.ResourceData, meta interface{}) error {
 	check, _, err := client.Check.Get(d.Id())
 
 	if err != nil {
-		return fmt.Errorf("Error reading check from the API.")
+		return fmt.Errorf("reading check from the API")
 	}
 
-	d.Set("url", check.URL)
-	d.Set("period", check.Period)
-	d.Set("apdex_t", check.Apdex)
-	d.Set("enabled", check.Enabled)
-	d.Set("published", check.Published)
-	d.Set("alias", check.Alias)
-	d.Set("string_match", check.StringMatch)
-	d.Set("mute_until", check.MuteUntil)
-	d.Set("disabled_locations", check.DisabledLocations)
-	d.Set("custom_headers", check.CustomHeaders)
+	for k, v := range map[string]interface{}{
+		"url":                check.URL,
+		"period":             check.Period,
+		"apdex_t":            check.Apdex,
+		"enabled":            check.Enabled,
+		"published":          check.Published,
+		"alias":              check.Alias,
+		"string_match":       check.StringMatch,
+		"mute_until":         check.MuteUntil,
+		"disabled_locations": check.DisabledLocations,
+		"custom_headers":     check.CustomHeaders,
+	} {
+		if err := d.Set(k, v); err != nil {
+			return err
+		}
+	}
 
 	return nil
 }
@@ -177,7 +183,7 @@ func checkUpdate(d *schema.ResourceData, meta interface{}) error {
 
 	_, _, err := client.Check.Update(d.Id(), contrusctPayload(d))
 	if err != nil {
-		return fmt.Errorf("Error updating check with the API.")
+		return fmt.Errorf("updating check with the API")
 	}
 
 	return nil
@@ -188,11 +194,11 @@ func checkDelete(d *schema.ResourceData, meta interface{}) error {
 	checkDeleted, _, err := client.Check.Remove(d.Id())
 
 	if err != nil {
-		return fmt.Errorf("Error removing check from the API.")
+		return fmt.Errorf("removing check from the API")
 	}
 
 	if !checkDeleted {
-		return fmt.Errorf("Check couldn't be deleted.")
+		return fmt.Errorf("check couldn't be deleted")
 	}
 
 	return nil

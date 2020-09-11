@@ -46,8 +46,15 @@ func nodesList(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	d.SetId("updown.io/nodes")
-	d.Set("ipv4", ipv4)
-	d.Set("ipv6", ipv6)
+
+	for k, v := range map[string]interface{}{
+		"ipv4": ipv4,
+		"ipv6": ipv6,
+	} {
+		if err := d.Set(k, v); err != nil {
+			return err
+		}
+	}
 
 	return nil
 }

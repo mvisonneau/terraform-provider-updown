@@ -4,17 +4,19 @@ name: test
 
 steps:
   - name: lint
-    image: golang:1.12
+    image: golang:1.15
     commands:
       - make lint
   - name: test
-    image: golang:1.12
+    image: golang:1.15
     commands:
       - make test
   - name: build
-    image: golang:1.12
+    image: goreleaser/goreleaser:v0.143.0
     commands:
+      - apk add --no-cache make
       - make build
+      - make is-git-dirty
   - name: all_ok
     image: busybox
     depends_on:
@@ -31,7 +33,57 @@ trigger:
     - tag
 
 ---
+kind: pipeline
+name: coverage
+
+steps:
+  - name: coverage
+    image: golang:1.15
+    environment:
+      COVERALLS_TOKEN:
+        from_secret: COVERALLS_TOKEN
+    commands:
+      - make coverage
+      - make publish-coveralls
+
+trigger:
+  repo:
+    - mvisonneau/terraform-provider-updown
+  event:
+    - push
+    - tag
+
+---
+kind: pipeline
+name: build
+
+steps:
+  - name: fetch
+    image: docker:git
+    commands:
+      - git fetch --tags
+
+  - name: release
+    image: goreleaser/goreleaser:v0.143.0
+    environment:
+      GITHUB_TOKEN:
+        from_secret: GITHUB_TOKEN
+    commands:
+      - apk add --no-cache make
+      - make release
+
+trigger:
+  repo:
+    - mvisonneau/terraform-provider-updown
+  event:
+    - tag
+
+depends_on:
+  - test
+  - coverage
+
+---
 kind: signature
-hmac: 32b5dbddefc715a5a161310f6fa6167df80792b9e0b11a818f2163e8ef9a018a
+hmac: 0d04ff1d32c8c34b4ed245ef550b698e643d89ddf0a0c04fc6ec7e27b3fcb332
 
 ...

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- gosec tests
+- binary releases for windows, darwin & linux - (386, amd64 & arm64)
+
 ### Changed
 
 - Upgraded to go 1.15
