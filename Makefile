@@ -81,10 +81,6 @@ coverage: ## Generates coverage report
 	rm -rf *.out
 	go test -v ./... -coverpkg=./... -coverprofile=coverage.out
 
-.PHONY: is-git-dirty
-is-git-dirty: ## Tests if git is in a dirty state
-	@test $(shell git status --porcelain | grep -c .) -eq 0
-
 .PHONY: sign-drone
 sign-drone: ## Sign Drone CI configuration
 	drone sign $(REPOSITORY) --save

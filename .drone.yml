@@ -16,7 +16,6 @@ steps:
     commands:
       - apk add --no-cache make
       - make build
-      - make is-git-dirty
   - name: all_ok
     image: busybox
     depends_on:
@@ -54,36 +53,7 @@ trigger:
     - tag
 
 ---
-kind: pipeline
-name: build
-
-steps:
-  - name: fetch
-    image: docker:git
-    commands:
-      - git fetch --tags
-
-  - name: release
-    image: goreleaser/goreleaser:v0.143.0
-    environment:
-      GITHUB_TOKEN:
-        from_secret: GITHUB_TOKEN
-    commands:
-      - apk add --no-cache make
-      - make release
-
-trigger:
-  repo:
-    - mvisonneau/terraform-provider-updown
-  event:
-    - tag
-
-depends_on:
-  - test
-  - coverage
-
----
 kind: signature
-hmac: 0d04ff1d32c8c34b4ed245ef550b698e643d89ddf0a0c04fc6ec7e27b3fcb332
+hmac: c25721411dbe035a4fd32e07ea2c4abd28bff382a5541ad65e53de9182131c82
 
 ...
