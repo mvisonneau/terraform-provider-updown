@@ -56,11 +56,11 @@ resource "updown_check" "mywebsite" {
 data "updown_nodes" "global" {}
 
 output "updown_nodes_ipv4" {
-  value = "${data.updown_nodes.global.ipv4}"
+  value = data.updown_nodes.global.ipv4
 }
 
 output "updown_nodes_ipv6" {
-  value = "${data.updown_nodes.global.ipv6}"
+  value = data.updown_nodes.global.ipv6
 }
 ```
 
@@ -70,7 +70,7 @@ output "updown_nodes_ipv6" {
 ~$ export PROVIDER_PATH=${GOPATH}/src/github.com/mvisonneau/terraform-provider-updown
 ~$ mkdir -p ${PROVIDER_PATH}; cd ${PROVIDER_PATH}
 ~$ git clone git@github.com:mvisonneau/terraform-provider-updown .
-~$ make build
+~$ make build-local
 ```
 
 ## TODO
