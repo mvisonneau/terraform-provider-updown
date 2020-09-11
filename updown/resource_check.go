@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/antoineaugusti/updown"
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
 func checkResource() *schema.Resource {

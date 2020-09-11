@@ -2,8 +2,8 @@ package updown
 
 import (
 	"github.com/antoineaugusti/updown"
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 )
 
 // Provider returns a Terraform provider resource

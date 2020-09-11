@@ -7,6 +7,10 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 
 ## [Unreleased]
 
+### Changed
+
+- Switched libs to github.com/hashicorp/terraform-plugin-sdk instead of formerly github.com/hashicorp/terraform
+
 ## [0.2.1] - 2020-09-11
 
 ### Added
