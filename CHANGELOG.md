@@ -7,8 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Upgraded to go 1.15
+- Upgraded to terraform 0.13.2
+
 ## [0.2.0] - 2019-05-27
-### FEATURES
+
+### Added
+
 - new `data` resource : **updown_nodes** returns the list of testing nodes ipv4 and ipv6 addresses
 - new `resource` : **updown_check** creates a check
 - Makefile
