@@ -3,6 +3,7 @@
 [![GoDoc](https://godoc.org/github.com/mvisonneau/terraform-provider-updown?status.svg)](https://godoc.org/github.com/mvisonneau/terraform-provider-updown/app)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mvisonneau/terraform-provider-updown)](https://goreportcard.com/report/github.com/mvisonneau/terraform-provider-updown)
 [![Build Status](https://cloud.drone.io/api/badges/mvisonneau/terraform-provider-updown/status.svg)](https://cloud.drone.io/mvisonneau/terraform-provider-updown)
+[![Coverage Status](https://coveralls.io/repos/github/mvisonneau/terraform-provider-updown/badge.svg?branch=main)](https://coveralls.io/github/mvisonneau/terraform-provider-updown?branch=main)
 
 Terraform provider for [updown.io](https://updown.io)
 
