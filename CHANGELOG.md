@@ -7,6 +7,8 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 
 ## [Unreleased]
 
+## [v0.2.2] - 2021-08-31
+
 ### Added
 
 - New `updown_webhook` resource to manage webhooks configuration
@@ -19,7 +21,7 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 - Bumped dependencies to their latest versions
 - Replaced Drone with GitHub actions
 
-## [0.2.1] - 2020-09-11
+## [v0.2.1] - 2020-09-11
 
 ### Added
 
@@ -41,6 +43,7 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 - CI
 - License
 
-[Unreleased]: https://github.com/mvisonneau/terraform-provider-updown/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/mvisonneau/terraform-provider-updown/compare/v0.2.2...HEAD
+[v0.2.2]: https://github.com/mvisonneau/terraform-provider-updown/tree/v0.2.2
 [v0.2.1]: https://github.com/mvisonneau/terraform-provider-updown/tree/v0.2.1
 [0.2.0]: https://github.com/mvisonneau/terraform-provider-updown/tree/0.2.0
