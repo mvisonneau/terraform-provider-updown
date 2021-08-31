@@ -1,6 +1,6 @@
 NAME          := terraform-provider-updown
 VERSION       := $(shell git describe --tags --abbrev=1)
-FILES         := $(shell git ls-files '*.go')
+FILES         := $(shell git ls-files 'updown/*.go')
 REPOSITORY    := mvisonneau/$(NAME)
 .DEFAULT_GOAL := help
 
