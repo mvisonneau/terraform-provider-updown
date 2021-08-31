@@ -83,7 +83,7 @@ func checkResource() *schema.Resource {
 	}
 }
 
-func contrusctPayload(d *schema.ResourceData) updown.CheckItem {
+func constructPayload(d *schema.ResourceData) updown.CheckItem {
 	payload := updown.CheckItem{}
 
 	if v, ok := d.GetOk("url"); ok {
@@ -140,7 +140,7 @@ func contrusctPayload(d *schema.ResourceData) updown.CheckItem {
 func checkCreate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*updown.Client)
 
-	check, _, err := client.Check.Add(contrusctPayload(d))
+	check, _, err := client.Check.Add(constructPayload(d))
 	if err != nil {
 		return fmt.Errorf("creating check with the API")
 	}
@@ -181,7 +181,7 @@ func checkRead(d *schema.ResourceData, meta interface{}) error {
 func checkUpdate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*updown.Client)
 
-	_, _, err := client.Check.Update(d.Id(), contrusctPayload(d))
+	_, _, err := client.Check.Update(d.Id(), constructPayload(d))
 	if err != nil {
 		return fmt.Errorf("updating check with the API")
 	}
