@@ -10,13 +10,14 @@ export GO111MODULE=on
 
 .PHONY: setup
 setup: ## Install required libraries/tools for build tasks
-	@command -v cover 2>&1 >/dev/null       || GO111MODULE=off go get -u -v golang.org/x/tools/cmd/cover
-	@command -v goimports 2>&1 >/dev/null   || GO111MODULE=off go get -u -v golang.org/x/tools/cmd/goimports
-	@command -v gosec 2>&1 >/dev/null       || GO111MODULE=off go get -u -v github.com/securego/gosec/cmd/gosec
-	@command -v goveralls 2>&1 >/dev/null   || GO111MODULE=off go get -u -v github.com/mattn/goveralls
-	@command -v ineffassign 2>&1 >/dev/null || GO111MODULE=off go get -u -v github.com/gordonklaus/ineffassign
-	@command -v misspell 2>&1 >/dev/null    || GO111MODULE=off go get -u -v github.com/client9/misspell/cmd/misspell
-	@command -v revive 2>&1 >/dev/null      || GO111MODULE=off go get -u -v github.com/mgechev/revive
+	@command -v cover 2>&1 >/dev/null        || go install golang.org/x/tools/cmd/cover@latest
+	@command -v goimports 2>&1 >/dev/null    || go install golang.org/x/tools/cmd/goimports@latest
+	@command -v gosec 2>&1 >/dev/null        || go install github.com/securego/gosec/cmd/gosec@latest
+	@command -v goveralls 2>&1 >/dev/null    || go install github.com/mattn/goveralls@latest
+	@command -v ineffassign 2>&1 >/dev/null  || go install github.com/gordonklaus/ineffassign@latest
+	@command -v misspell 2>&1 >/dev/null     || go install github.com/client9/misspell/cmd/misspell@latest
+	@command -v revive 2>&1 >/dev/null       || go install github.com/mgechev/revive@latest
+	@command -v tfplugindocs 2>&1 >/dev/null || go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.4.0
 
 .PHONY: fmt
 fmt: setup ## Format source code
@@ -54,11 +55,16 @@ gosec: setup ## Test code for security vulnerabilities
 test: ## Run the tests against the codebase
 	go test -v -race ./...
 
+.PHONY: generate
+docs: setup ## Test code with misspell
+	tfplugindocs
+
 .PHONY: build-local
 build-local: ## Build the binaries using local GOOS
 	go build .
 
-install: build-local
+.PHONY: install
+install: build-local ## Build and install the provider locally
 	mkdir -p ~/.terraform.d/plugins/$(DEV_REPOSITORY_PATH)/$(DEV_VERSION)/$(OS_ARCH)
 	mv $(NAME) ~/.terraform.d/plugins/$(DEV_REPOSITORY_PATH)/$(DEV_VERSION)/$(OS_ARCH)
 

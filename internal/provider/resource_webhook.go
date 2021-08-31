@@ -1,14 +1,16 @@
-package updown
+package provider
 
 import (
 	"fmt"
 
 	"github.com/antoineaugusti/updown"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func webhookResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`updown_check` defines a webhook",
+
 		Create: webhookCreate,
 		Read:   webhookRead,
 		Delete: webhookDelete,

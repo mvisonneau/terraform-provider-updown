@@ -1,14 +1,16 @@
-package updown
+package provider
 
 import (
 	"fmt"
 
 	"github.com/antoineaugusti/updown"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func checkResource() *schema.Resource {
 	return &schema.Resource{
+		Description: "`updown_check` defines a check",
+
 		Create: checkCreate,
 		Read:   checkRead,
 		Delete: checkDelete,
@@ -83,7 +85,7 @@ func checkResource() *schema.Resource {
 	}
 }
 
-func constructPayload(d *schema.ResourceData) updown.CheckItem {
+func constructCheckPayload(d *schema.ResourceData) updown.CheckItem {
 	payload := updown.CheckItem{}
 
 	if v, ok := d.GetOk("url"); ok {
@@ -140,7 +142,7 @@ func constructPayload(d *schema.ResourceData) updown.CheckItem {
 func checkCreate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*updown.Client)
 
-	check, _, err := client.Check.Add(constructPayload(d))
+	check, _, err := client.Check.Add(constructCheckPayload(d))
 	if err != nil {
 		return fmt.Errorf("creating check with the API")
 	}
@@ -181,7 +183,7 @@ func checkRead(d *schema.ResourceData, meta interface{}) error {
 func checkUpdate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*updown.Client)
 
-	_, _, err := client.Check.Update(d.Id(), constructPayload(d))
+	_, _, err := client.Check.Update(d.Id(), constructCheckPayload(d))
 	if err != nil {
 		return fmt.Errorf("updating check with the API")
 	}

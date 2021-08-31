@@ -1,15 +1,16 @@
-package updown
+package provider
 
 import (
 	"fmt"
 
 	"github.com/antoineaugusti/updown"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func nodesDataSource() *schema.Resource {
 	return &schema.Resource{
-		Read: nodesList,
+		Description: "`updown_nodes` data source can be used to retrieve the IP addresses of their servers.",
+		Read:        nodesList,
 
 		Schema: map[string]*schema.Schema{
 			"ipv4": {

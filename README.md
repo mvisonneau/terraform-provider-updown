@@ -52,6 +52,11 @@ resource "updown_check" "mywebsite" {
   }
 }
 
+# Add a webhook
+resource "updown_webhook" "mywebhook" {
+  url = "https://my-nice-webhook.com"
+}
+
 # Output ipv4 and ipv6 nodes addresses list
 data "updown_nodes" "global" {}
 
@@ -87,4 +92,3 @@ It looks like the following regexp : ^https:\/\/updown.io\/([a-z0-9]{4})$
 ## TODO
 
 - Add tests, need to figure out how to get a mocking endpoint
-- Documentation
