@@ -10,12 +10,14 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 ### Added
 
 - New `updown_webhook` resource to manage webhooks configuration
+- Automatically generated & enhanced documentation
 
 ### Changed
 
 - Switched libs to github.com/hashicorp/terraform-plugin-sdk instead of formerly github.com/hashicorp/terraform
 - Upgraded to go 1.17
 - Bumped dependencies to their latest versions
+- Replaced Drone with GitHub actions
 
 ## [0.2.1] - 2020-09-11
 
