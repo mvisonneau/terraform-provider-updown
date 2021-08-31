@@ -13,6 +13,7 @@ Terraform provider for [updown.io](https://updown.io)
 |---|---|---|
 | **data** |`updown_nodes`| Returns the list of testing nodes ipv4 and ipv6 addresses |
 | **resource** |`updown_check`| Creates a check |
+| **resource** |`updown_webhook`| Creates a webhook |
 
 ## Example usage
 
