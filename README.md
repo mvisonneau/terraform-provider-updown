@@ -70,24 +70,13 @@ output "updown_nodes_ipv6" {
 }
 ```
 
-## Import
-
-### updown_check
-
-```
-terraform import updown_check.my_website <check_id>
-```
-
-The check_id is basically whatever 4 characters you have after https://updown.io/
-It looks like the following regexp : ^https:\/\/updown.io\/([a-z0-9]{4})$
-
 ## Building the provider
 
 ```bash
 ~$ export PROVIDER_PATH=${GOPATH}/src/github.com/mvisonneau/terraform-provider-updown
 ~$ mkdir -p ${PROVIDER_PATH}; cd ${PROVIDER_PATH}
 ~$ git clone git@github.com:mvisonneau/terraform-provider-updown .
-~$ make build-local
+~$ make install
 ```
 
 ## TODO
