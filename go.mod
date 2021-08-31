@@ -71,3 +71,5 @@ require (
 	google.golang.org/grpc v1.40.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
+
+replace github.com/antoineaugusti/updown => github.com/mvisonneau/updown v0.0.0-20210831171040-1fa6b09ae7df

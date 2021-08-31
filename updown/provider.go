@@ -25,7 +25,8 @@ func Provider() terraform.ResourceProvider {
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
-			"updown_check": checkResource(),
+			"updown_check":   checkResource(),
+			"updown_webhook": webhookResource(),
 		},
 	}
 }

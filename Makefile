@@ -1,8 +1,10 @@
-NAME          := terraform-provider-updown
-VERSION       := $(shell git describe --tags --abbrev=1)
-FILES         := $(shell git ls-files 'updown/*.go')
-REPOSITORY    := mvisonneau/$(NAME)
-.DEFAULT_GOAL := help
+NAME                := terraform-provider-updown
+VERSION             := $(shell git describe --tags --abbrev=1)
+FILES               := $(shell git ls-files 'updown/*.go')
+DEV_REPOSITORY_PATH := local.dev/mvisonneau/updown
+DEV_VERSION         := 0.0.1
+OS_ARCH             := linux_amd64
+.DEFAULT_GOAL       := help
 
 export GO111MODULE=on
 
@@ -52,13 +54,13 @@ gosec: setup ## Test code for security vulnerabilities
 test: ## Run the tests against the codebase
 	go test -v -race ./...
 
-.PHONY: install
-install: ## Build and install locally the binary (dev purpose)
-	go install .
-
 .PHONY: build-local
 build-local: ## Build the binaries using local GOOS
 	go build .
+
+install: build-local
+	mkdir -p ~/.terraform.d/plugins/$(DEV_REPOSITORY_PATH)/$(DEV_VERSION)/$(OS_ARCH)
+	mv $(NAME) ~/.terraform.d/plugins/$(DEV_REPOSITORY_PATH)/$(DEV_VERSION)/$(OS_ARCH)
 
 .PHONY: build
 build: ## Build the binaries
@@ -80,10 +82,6 @@ clean: ## Remove binary if it exists
 coverage: ## Generates coverage report
 	rm -rf *.out
 	go test -v ./... -coverpkg=./... -coverprofile=coverage.out
-
-.PHONY: sign-drone
-sign-drone: ## Sign Drone CI configuration
-	drone sign $(REPOSITORY) --save
 
 .PHONY: all
 all: lint test build coverage ## Test, builds and ship package for all supported platforms
