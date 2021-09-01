@@ -38,7 +38,7 @@ signs:
     args:
       - '--batch'
       - '--local-user'
-      - '{{ .Env.GPG_FINGERPRINT }}'
+      - '515A566EAF992A6CF595BC951E9BD116402B7409'
       - '--output'
       - '${signature}'
       - '--detach-sign'
