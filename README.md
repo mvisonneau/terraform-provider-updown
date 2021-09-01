@@ -7,6 +7,10 @@
 
 Terraform provider for [updown.io](https://updown.io)
 
+## Docs
+
+https://registry.terraform.io/providers/mvisonneau/updown/latest/docs
+
 ## Resources
 
 | TYPE | NAME | DESCRIPTION |
