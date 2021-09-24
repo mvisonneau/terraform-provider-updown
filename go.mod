@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/antoineaugusti/updown v0.0.0-20190412074625-d590ab97f115
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.1
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.8.0
 )
 
 require (
@@ -20,7 +20,7 @@ require (
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
 	github.com/hashicorp/go-version v1.3.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.10.1 // indirect
-	github.com/hashicorp/terraform-plugin-go v0.3.0 // indirect
+	github.com/hashicorp/terraform-plugin-go v0.4.0 // indirect
 	github.com/hashicorp/yamux v0.0.0-20210826001029-26ff87cf9493 // indirect
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-isatty v0.0.13 // indirect
