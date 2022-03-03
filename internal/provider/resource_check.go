@@ -73,6 +73,14 @@ func checkResource() *schema.Resource {
 					Type: schema.TypeString,
 				},
 			},
+			"recipients": {
+				Type:        schema.TypeSet,
+				Optional:    true,
+				Description: "Selected alert recipients. It's an array of recipient IDs you can get from the recipients API.",
+				Elem: &schema.Schema{
+					Type: schema.TypeString,
+				},
+			},
 			"custom_headers": {
 				Type:        schema.TypeMap,
 				Optional:    true,
@@ -129,6 +137,15 @@ func constructCheckPayload(d *schema.ResourceData) updown.CheckItem {
 		payload.DisabledLocations = stringSlice
 	}
 
+	if v, ok := d.GetOk("recipients"); ok {
+		interfaceSlice := v.(*schema.Set).List()
+		var stringSlice []string
+		for s := range interfaceSlice {
+			stringSlice = append(stringSlice, interfaceSlice[s].(string))
+		}
+		payload.Recipients = stringSlice
+	}
+
 	if m, ok := d.GetOk("custom_headers"); ok {
 		payload.CustomHeaders = map[string]string{}
 		for k, v := range m.(map[string]interface{}) {
@@ -170,6 +187,7 @@ func checkRead(d *schema.ResourceData, meta interface{}) error {
 		"string_match":       check.StringMatch,
 		"mute_until":         check.MuteUntil,
 		"disabled_locations": check.DisabledLocations,
+		"recipients":         check.Recipients,
 		"custom_headers":     check.CustomHeaders,
 	} {
 		if err := d.Set(k, v); err != nil {
