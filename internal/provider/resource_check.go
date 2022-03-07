@@ -16,8 +16,9 @@ func checkResource() *schema.Resource {
 		Delete: checkDelete,
 		Update: checkUpdate,
 		Exists: checkExists,
+
 		Importer: &schema.ResourceImporter{
-			State: schema.ImportStatePassthrough,
+			StateContext: schema.ImportStatePassthroughContext,
 		},
 
 		Schema: map[string]*schema.Schema{

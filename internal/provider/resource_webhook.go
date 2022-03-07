@@ -9,7 +9,7 @@ import (
 
 func webhookResource() *schema.Resource {
 	return &schema.Resource{
-		Description: "`updown_check` defines a webhook",
+		Description: "`updown_webhook` defines a webhook",
 
 		Create: webhookCreate,
 		Read:   webhookRead,
@@ -17,7 +17,7 @@ func webhookResource() *schema.Resource {
 		Exists: webhookExists,
 
 		Importer: &schema.ResourceImporter{
-			State: schema.ImportStatePassthrough,
+			StateContext: schema.ImportStatePassthroughContext,
 		},
 
 		Schema: map[string]*schema.Schema{

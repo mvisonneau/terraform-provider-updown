@@ -7,6 +7,10 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced deprecated `schema.ImportStatePassthrough` with `schema.ImportStatePassthroughContext`
+
 ## [v0.2.2] - 2021-08-31
 
 ### Added
