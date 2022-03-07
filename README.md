@@ -17,7 +17,8 @@ https://registry.terraform.io/providers/mvisonneau/updown/latest/docs
 |---|---|---|
 | **data** |`updown_nodes`| Returns the list of testing nodes ipv4 and ipv6 addresses |
 | **resource** |`updown_check`| Creates a check |
-| **resource** |`updown_webhook`| Creates a webhook |
+| **resource** |`updown_recipient`| Creates a recipient |
+| **resource** |`updown_webhook`| Creates a webhook _(DEPRECATED)_ |
 
 ## Example usage
 
@@ -37,6 +38,12 @@ provider "updown" {
   api_key = "<YOUR_UPDOWN_API_KEY>"
 }
 
+# Add a recipient
+resource "updown_recipient" "myrecipient" {
+  type  = "email"
+  value = "foo@bar.baz"
+}
+
 # Create a check
 resource "updown_check" "mywebsite" {
   alias        = "https://example.com"
@@ -48,6 +55,10 @@ resource "updown_check" "mywebsite" {
   string_match = "OK"
   mute_until   = "tomorrow"
 
+  recipients = [
+    updown_recipient.myrecipient.id,
+  ]
+
   disabled_locations = [
     "mia",
   ]
@@ -57,7 +68,7 @@ resource "updown_check" "mywebsite" {
   }
 }
 
-# Add a webhook
+# Add a webhook (DEPRECATED)
 resource "updown_webhook" "mywebhook" {
   url = "https://my-nice-webhook.com"
 }
