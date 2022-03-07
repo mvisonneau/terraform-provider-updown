@@ -31,7 +31,7 @@ jobs:
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
-          version: v0.176.0
+          version: v1.6.1
           args: release --rm-dist
 
         env:
