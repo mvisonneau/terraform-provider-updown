@@ -15,4 +15,8 @@ resource "updown_check" "mywebsite" {
   custom_headers = {
     "X-GREAT-HEADER" = "yay!"
   }
+
+  recipients = [
+    "email:123456789"
+  ]
 }

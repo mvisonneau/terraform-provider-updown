@@ -4,19 +4,17 @@ FILES               := $(shell git ls-files 'updown/*.go')
 DEV_REPOSITORY_PATH := local.dev/mvisonneau/updown
 DEV_VERSION         := 0.0.1
 OS_ARCH             := linux_amd64
-.DEFAULT_GOAL       := help
 
-export GO111MODULE=on
+.DEFAULT_GOAL := help
 
 .PHONY: setup
 setup: ## Install required libraries/tools for build tasks
-	@command -v cover 2>&1 >/dev/null        || go install golang.org/x/tools/cmd/cover@latest
 	@command -v goimports 2>&1 >/dev/null    || go install golang.org/x/tools/cmd/goimports@latest
-	@command -v gosec 2>&1 >/dev/null        || go install github.com/securego/gosec/cmd/gosec@latest
+	@command -v gosec 2>&1 >/dev/null        || go install github.com/securego/gosec/v2/cmd/gosec@v2.9.6
 	@command -v goveralls 2>&1 >/dev/null    || go install github.com/mattn/goveralls@latest
-	@command -v ineffassign 2>&1 >/dev/null  || go install github.com/gordonklaus/ineffassign@latest
-	@command -v misspell 2>&1 >/dev/null     || go install github.com/client9/misspell/cmd/misspell@latest
-	@command -v revive 2>&1 >/dev/null       || go install github.com/mgechev/revive@latest
+	@command -v ineffassign 2>&1 >/dev/null  || go install github.com/gordonklaus/ineffassign@v0.0.0-20210914165742-4cc7213b9bc8
+	@command -v misspell 2>&1 >/dev/null     || go install github.com/client9/misspell/cmd/misspell@v0.3.4
+	@command -v revive 2>&1 >/dev/null       || go install github.com/mgechev/revive@v1.1.3
 	@command -v tfplugindocs 2>&1 >/dev/null || go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.4.0
 
 .PHONY: fmt
@@ -41,7 +39,7 @@ goimports: setup ## Test code syntax with goimports
 
 .PHONY: ineffassign
 ineffassign: setup ## Test code syntax for ineffassign
-	ineffassign $(FILES)
+	ineffassign ./...
 
 .PHONY: misspell
 misspell: setup ## Test code with misspell
