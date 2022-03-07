@@ -7,6 +7,8 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 
 ## [Unreleased]
 
+## [v0.2.3] - 2022-03-07
+
 ### Added
 
 - Support for `recipients` through new `updown_recipient` resources
@@ -57,7 +59,8 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 - CI
 - License
 
-[Unreleased]: https://github.com/mvisonneau/terraform-provider-updown/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/mvisonneau/terraform-provider-updown/compare/v0.2.3...HEAD
+[v0.2.3]: https://github.com/mvisonneau/terraform-provider-updown/tree/v0.2.3
 [v0.2.2]: https://github.com/mvisonneau/terraform-provider-updown/tree/v0.2.2
 [v0.2.1]: https://github.com/mvisonneau/terraform-provider-updown/tree/v0.2.1
 [0.2.0]: https://github.com/mvisonneau/terraform-provider-updown/tree/0.2.0
