@@ -7,9 +7,19 @@ and this project adheres to [0ver](https://0ver.org) (more or less).
 
 ## [Unreleased]
 
+### Added
+
+- Support for `recipients` through new `updown_recipient` resources
+- Lint tests as part of the CI pipeline
+
 ### Changed
 
 - Replaced deprecated `schema.ImportStatePassthrough` with `schema.ImportStatePassthroughContext`
+- Bumped goreleaser to `v1.6.1`
+
+### Deprecated
+
+- `updown_webhook` are being replaced by `updown_recipient` resources
 
 ## [v0.2.2] - 2021-08-31
 

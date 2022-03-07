@@ -38,12 +38,12 @@ func nodesList(d *schema.ResourceData, meta interface{}) error {
 
 	ipv4, _, err := client.Node.ListIPv4()
 	if err != nil {
-		return fmt.Errorf("Error reading ipv4 addresses from API")
+		return fmt.Errorf("reading ipv4 addresses from API")
 	}
 
 	ipv6, _, err := client.Node.ListIPv6()
 	if err != nil {
-		return fmt.Errorf("Error reading ipv6 addresses from API")
+		return fmt.Errorf("reading ipv6 addresses from API")
 	}
 
 	d.SetId("updown.io/nodes")

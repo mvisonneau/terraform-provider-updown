@@ -3,16 +3,18 @@
 page_title: "updown_webhook Resource - terraform-provider-updown"
 subcategory: ""
 description: |-
-  updown_check defines a webhook
+  updown_webhook defines a webhook
 ---
 
 # updown_webhook (Resource)
 
-`updown_check` defines a webhook
+`updown_webhook` defines a webhook
 
 ## Example Usage
 
 ```terraform
+# DEPRECATED : In favor of `updown_recipient` (https://updown.io/api#GET-/api/webhooks)
+#
 resource "updown_webhook" "mywebhook" {
   url = "https://my-nice-webhook.com"
 }
@@ -34,6 +36,8 @@ resource "updown_webhook" "mywebhook" {
 Import is supported using the following syntax:
 
 ```shell
+# DEPRECATED : In favor of `updown_recipient` (https://updown.io/api#GET-/api/webhooks)
+#
 # You can find the corresponding IDs by looking at the following API endpoint:
 # curl -s https://updown.io/api/webhooks\?api-key\=<your_api_key>
 # [{"id":"123456789abcdef","url":"https://example.com"}]

@@ -51,6 +51,7 @@ resource "updown_check" "mywebsite" {
 - **mute_until** (String) Mute notifications until given time, accepts a time, 'recovery' or 'forever'.
 - **period** (Number) Interval in seconds (15, 30, 60, 120, 300, 600, 1800 or 3600).
 - **published** (Boolean) Shall the status page be public (true or false).
+- **recipients** (Set of String) Selected alert recipients. It's an array of recipient IDs you can get from the recipients API.
 - **string_match** (String) Search for this string in the page.
 
 ## Import

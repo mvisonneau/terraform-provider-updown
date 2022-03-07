@@ -4,3 +4,4 @@ terraform-provider-updown
 terraform.tfstate*
 vendor
 dist
+goimports.out

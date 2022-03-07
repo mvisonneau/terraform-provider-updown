@@ -144,7 +144,7 @@ func constructCheckPayload(d *schema.ResourceData) updown.CheckItem {
 		for s := range interfaceSlice {
 			stringSlice = append(stringSlice, interfaceSlice[s].(string))
 		}
-		payload.Recipients = stringSlice
+		payload.RecipientIDs = stringSlice
 	}
 
 	if m, ok := d.GetOk("custom_headers"); ok {
@@ -188,7 +188,7 @@ func checkRead(d *schema.ResourceData, meta interface{}) error {
 		"string_match":       check.StringMatch,
 		"mute_until":         check.MuteUntil,
 		"disabled_locations": check.DisabledLocations,
-		"recipients":         check.Recipients,
+		"recipients":         check.RecipientIDs,
 		"custom_headers":     check.CustomHeaders,
 	} {
 		if err := d.Set(k, v); err != nil {

@@ -9,6 +9,8 @@ import (
 
 func webhookResource() *schema.Resource {
 	return &schema.Resource{
+		DeprecationMessage: "updown_webhook have been deprecated in favor of updown_recipient (https://updown.io/api#GET-/api/webhooks)",
+
 		Description: "`updown_webhook` defines a webhook",
 
 		Create: webhookCreate,
