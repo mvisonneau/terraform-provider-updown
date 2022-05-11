@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/antoineaugusti/updown v0.0.0-20190412074625-d590ab97f115
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.15.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 
 require (
